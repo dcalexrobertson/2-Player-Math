@@ -102,6 +102,30 @@
     
     if (self.game.currentPlayer.life == 0) {
         self.alerts.text = [self.game gameOver];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Good Stuff!" message:@"Do you want to play again?" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Fuck yeah!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            self.game.player1.life = 3;
+            self.game.player2.life = 3;
+            self.player1.text = [NSString stringWithFormat:@"%@ : %d/3", self.game.player1.name, self.game.player1.life];
+            self.player2.text = [NSString stringWithFormat:@"%@ : %d/3", self.game.player2.name, self.game.player2.life];
+            self.alerts.text = @"";
+            self.enter.enabled = YES;
+            self.question.text = [self.game newQuestion];
+        }];
+        
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Hell no!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            self.question.text = @"";
+            self.answer.text = @"Thanks for playing!";
+            self.alerts.text = @"";
+        }];
+        
+        [alert addAction:ok];
+        [alert addAction:cancel];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
     } else {
         self.next.enabled = YES;
     }
