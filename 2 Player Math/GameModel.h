@@ -12,16 +12,17 @@
 
 @interface GameModel : NSObject
 
-@property (nonatomic, strong) Player* player1;
-@property (nonatomic, strong) Player* player2;
+@property (nonatomic, strong) Player *player1;
+@property (nonatomic, strong) Player *player2;
+@property (nonatomic, strong) Player *currentPlayer;
 
 @property (nonatomic) int firstNumber;
 @property (nonatomic) int secondNumber;
 @property (nonatomic) int currentAnswer;
 
-- (NSString *)newQuestionForPlayer:(Player *)player;
+- (NSString *)newQuestion;
 
-- (NSString *)checkAnswer:(NSString *)answer forPlayer:(Player *)player;
+- (NSString *)checkAnswer:(NSString *)answer;
 
 - (NSString *)gameOver;
 
