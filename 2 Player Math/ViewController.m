@@ -37,28 +37,40 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)one:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"1"];
 }
 - (IBAction)two:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"2"];
 }
 - (IBAction)three:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"3"];
 }
 - (IBAction)four:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"4"];
 }
 - (IBAction)five:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"5"];
 }
 - (IBAction)six:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"6"];
 }
 - (IBAction)seven:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"7"];
 }
 - (IBAction)eight:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"8"];
 }
 - (IBAction)nine:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"9"];
 }
 - (IBAction)back:(id)sender {
+    self.answer.text = [self.answer.text substringToIndex:[self.answer.text length] - 1];
 }
 - (IBAction)zero:(id)sender {
+    self.answer.text = [self.answer.text stringByAppendingString:@"0"];
 }
 - (IBAction)clear:(id)sender {
+    self.answer.text = @"";
 }
 
 @end

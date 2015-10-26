@@ -27,7 +27,7 @@
     self.secondNumber = 1 + arc4random_uniform(21);
     self.currentAnswer = self.firstNumber + self.secondNumber;
     
-    return [NSString stringWithFormat:@"%@ :%d + %d?", player.name, self.firstNumber, self.secondNumber];
+    return [NSString stringWithFormat:@"%@ : %d + %d?", player.name, self.firstNumber, self.secondNumber];
 }
 
 - (NSString *)checkAnswer:(NSString *)answer forPlayer:(Player *)player
