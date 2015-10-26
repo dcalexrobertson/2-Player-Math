@@ -79,7 +79,18 @@
     self.answer.text = @"";
 }
 - (IBAction)enter:(id)sender {
+    
+    self.alerts.alpha = 1;
     self.alerts.text = [self.game checkAnswer:self.answer.text];
+    if ([self.alerts.text isEqualToString:@"That's wrong!"]) {
+        self.alerts.textColor = [UIColor redColor];
+        [UIView animateWithDuration:1 animations:^{self.alerts.alpha = 0;}];
+    } else if ([self.alerts.text isEqualToString:@"That's correct!"]) {
+        self.alerts.textColor = [UIColor greenColor];
+        [UIView animateWithDuration:1 animations:^{self.alerts.alpha = 0;}];
+    } else {
+        self.alerts.textColor = [UIColor greenColor];
+    }
     
     if (self.game.currentPlayer == self.game.player1) {
         self.player1.text = [NSString stringWithFormat:@"%@ : %d/3", self.game.player1.name, self.game.player1.life];
@@ -87,8 +98,14 @@
         self.player2.text = [NSString stringWithFormat:@"%@ : %d/3", self.game.player2.name, self.game.player2.life];
     }
     
-    self.next.enabled = YES;
     self.enter.enabled = NO;
+    
+    if (self.game.currentPlayer.life == 0) {
+        self.alerts.text = [self.game gameOver];
+    } else {
+        self.next.enabled = YES;
+    }
+    
 }
 - (IBAction)next:(id)sender {
     self.question.text = [self.game newQuestion];
